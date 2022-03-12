@@ -1,4 +1,5 @@
 $main-color: #36df36;
+$text-color:#4c4c4c;
 // Desktop & laptop
 @media only screen and (min-width: 64em) {
     .row-page {
@@ -10,14 +11,18 @@ $main-color: #36df36;
         li { 
             margin: 0 15px;
             font-weight: 700;
+            a {
+                text-decoration: none;
+                color: $text-color;
+
+            }
+        }
+        .active { 
+            font-weight: 700;
             border-bottom: 3px solid $main-color;
             a {
                 text-decoration: none;
-                color: black;
-            }
-            &:last-child {
-                border-right: none;
-                
+                color: $text-color;
             }
         }
     }

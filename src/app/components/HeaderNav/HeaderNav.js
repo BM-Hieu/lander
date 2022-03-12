@@ -1,36 +1,30 @@
 import { React } from "react";
+import { NavLink } from "react-router-dom";
 import "./HeaderNav.scss";
 
 function HeaderNav() {
   return (
     <ul className="row-page">
       <li>
-        <a href="/noi-bat">
-          <label for="nav-mobile-input">
-            <span>Nổi bật</span>
-          </label>
-        </a>
+        <label htmlFor="nav-mobile-input">
+          <NavLink to="/thue-nha-dat">
+            <span>Thuê nhà đất</span>
+          </NavLink>
+        </label>
       </li>
       <li>
-        <a href="/nha-dat-cho-thue">
-          <label for="nav-mobile-input">
-            <span>Nhà đất cho thuê</span>
-          </label>
-        </a>
+        <label htmlFor="nav-mobile-input">
+          <NavLink to="mua-nha-dat">
+            <span>Mua nhà đất</span>
+          </NavLink>
+        </label>
       </li>
       <li>
-        <a href="nha-dat-ban">
-          <label for="nav-mobile-input">
-            <span>Nhà đất bán</span>
-          </label>
-        </a>
-      </li>
-      <li>
-        <a href="/phong-tro-cho-thue">
-          <label for="nav-mobile-input">
-            <span>Phòng trọ cho thuê</span>
-          </label>
-        </a>
+        <label htmlFor="nav-mobile-input">
+          <NavLink to="/thue-phong-tro">
+            <span>Thuê phòng trọ</span>
+          </NavLink>
+        </label>
       </li>
     </ul>
   );

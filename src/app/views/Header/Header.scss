@@ -72,6 +72,7 @@ $main-line: #d0d0d0;
         left: 0;
         background-color: rgba(0, 0 ,0 ,0.3);
         display: none;
+        z-index: 99;
     }
     .header-page_mobile{
         position: fixed;
@@ -84,6 +85,7 @@ $main-line: #d0d0d0;
         transform: translateX(-100%);
         opacity: 0;
         transition: transform linear 0.2s, opacity linear 0.2s;
+        z-index: 999;
         .page-mobile_page {
             position: absolute;
             width: 28px;
@@ -134,6 +136,7 @@ $main-line: #d0d0d0;
         transform: translateX(-100%);
         opacity: 0;
         transition: transform linear 0.2s, opacity linear 0.2s;
+        z-index: 999;
         .page-mobile_page {
             position: absolute;
             width: 28px;

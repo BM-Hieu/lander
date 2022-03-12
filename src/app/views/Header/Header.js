@@ -2,6 +2,7 @@ import React from "react";
 // import PropTypes from "prop-types";
 import Logo from "../../assets/img/logo/MCLANDLOGO.png";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
+import { Link } from "react-router-dom";
 import "./Header.scss";
 
 function Header() {
@@ -10,7 +11,7 @@ function Header() {
       <div className="container-fluid header">
         <div className="header-row">
           <div className="header-bars-btn">
-            <label for="nav-mobile-input">
+            <label htmlFor="nav-mobile-input">
               <i className="fa-solid fa-bars"></i>
             </label>
           </div>
@@ -28,18 +29,25 @@ function Header() {
           <div className="header-page">
             <HeaderNav />
           </div>
-          <label for="nav-mobile-input" className="header-nav_overlay"></label>
+          <label
+            htmlFor="nav-mobile-input"
+            className="header-nav_overlay"
+          ></label>
           <div className="header-page_mobile">
-            <label for="nav-mobile-input" className="page-mobile_page">
+            <label htmlFor="nav-mobile-input" className="page-mobile_page">
               <i className="fa-solid fa-xmark"></i>
             </label>
             <HeaderNav />
           </div>
           <div className="header-right">
             <div className="row-right">
-              <button type="button" className="btn btn-success">
+              <Link
+                to="/admin/manager"
+                type="button"
+                className="btn btn-success"
+              >
                 Đăng bài
-              </button>
+              </Link>
             </div>
           </div>
         </div>
