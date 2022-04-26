@@ -1,8 +1,9 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import LoginImg from "../../assets/img/logo/pagelogin.png";
 import usersApi from "../../api/usersApi";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import auth from "../../middleware/auth"
 
 import "./Login.scss";
 
@@ -11,6 +12,11 @@ import SignUp from "../../components/SignUp/SignUp";
 const Login = () => {
   const [showRegister, setShowRegister] = useState(false);
   // const [user, setUser] = useState(null);
+  useEffect(() => {
+    if(auth) {
+      setShowRegister(true)
+    }
+  },[])
 
   const {
     register,

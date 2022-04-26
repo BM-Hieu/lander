@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { getDescrip } from "../data";
 import ReviewImages from "../../components/ReviewImages/ReviewImage";
 import "./InforLand.scss";

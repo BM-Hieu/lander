@@ -25,7 +25,7 @@ export default function NewFeed() {
             </div>
             <div className="nf-title_right">
               <button className="btn custom-btn">
-                <i class="fa-solid fa-arrows-rotate"></i> Làm mới
+                <i className="fa-solid fa-arrows-rotate"></i> Làm mới
               </button>
             </div>
           </div>

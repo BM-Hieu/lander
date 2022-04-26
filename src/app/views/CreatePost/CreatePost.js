@@ -3,6 +3,8 @@ import "./CreatePost.scss";
 import dataCity from "./local.json";
 
 function CreatePost() {
+  // const [checkCity, setCheckCity] = useState();
+  // const [checkDistricts, setCheckDistricts] = useState('');
   const [sell, setSell] = useState(false);
   const [rent, setRent] = useState(false);
 
@@ -10,6 +12,11 @@ function CreatePost() {
     setSell(e === "sell");
     setRent(e === "rent");
   };
+
+  const optionSelectorDistricts = (e) => {
+    // const quan = dataCity.find(dataCity.code === e)
+    // console.log(quan);
+  }
 
   const optionSell = [
     { value: "house", title: "Nhà" },
@@ -21,7 +28,7 @@ function CreatePost() {
     { value: "homestay", title: "Phòng trọ" },
   ];
 
-  console.log(dataCity);
+
   return (
     <section className="vh-100">
       <div className="container">
@@ -71,13 +78,13 @@ function CreatePost() {
                   <option>Chọn bất động sản</option>
                   {sell
                     ? optionSell.map((data) => (
-                        <option value={data.value}>{data.title}</option>
-                      ))
+                      <option value={data.value}>{data.title}</option>
+                    ))
                     : null}
                   {rent
                     ? optionRent.map((data) => (
-                        <option value={data.value}>{data.title}</option>
-                      ))
+                      <option value={data.value}>{data.title}</option>
+                    ))
                     : null}
                 </select>
               </div>
@@ -114,9 +121,12 @@ function CreatePost() {
                     Disable={!sell && !rent ? true : false}
                     className="form-select"
                     aria-label="select example"
+                    onChange={(e) => optionSelectorDistricts(e.target.value)}
                   >
                     <option>Chọn bất động sản</option>
-                    <option value="1">a</option>
+                    {dataCity.map((city) => (
+                      <option value={city.code}>{city.name}</option>
+                    ))}
                   </select>
                 </div>
                 <div className="col-4">
@@ -128,8 +138,10 @@ function CreatePost() {
                     className="form-select"
                     aria-label="select example"
                   >
-                    <option>Chọn bất động sản</option>
-                    <option value="1">a</option>
+                    <option>Quận/Huyện</option>
+                    {dataCity.map((city) => (
+                      <option value="1">{city.name}</option>
+                    ))}
                   </select>
                 </div>
                 <div className="col-4">

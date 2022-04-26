@@ -5,6 +5,8 @@ import { NotFound } from "../views/NotFound";
 import { CreatePost } from "../views/CreatePost";
 import { InforLand } from "../views/InforLand";
 import { Contact } from "../views/Contact";
+import { ManagerMember } from "../views/MangerMember";
+import { ManagerPost } from "../views/ManagerPost";
 
 export default function AppRouter() {
   return (
@@ -17,8 +19,8 @@ export default function AppRouter() {
       <Route path="/contact" element={<Contact />} />
 
       {/* auth routes */}
-      <Route path="/manager/posts" element={<h1>tất cả bài viết</h1>} />
-      <Route path="/manager/members" element={<h1>Tất cả thành viên</h1>} />
+      <Route path="/manager/posts" element={<ManagerPost/>} />
+      <Route path="/manager/members" element={<ManagerMember/>} />
       <Route path="/manager/create-post" element={<CreatePost />} />
       <Route
         path="/manager/add-member"
