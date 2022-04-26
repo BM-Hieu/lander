@@ -1,27 +1,22 @@
 import { Header } from "./app/views/Header";
-import { Routes, Route } from "react-router-dom";
-import { Login } from "./app/views/Login";
-import { NewFeed } from "./app/views/NewFeed";
-import { NotFound } from "./app/views/NotFound";
-import { Posting } from "./app/views/Posting";
+import RouterApp from "./app/router-app";
 import "./App.css";
 
-function App() {
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
+
+// If you want you can use SCSS instead of css
+
+export default function App() {
   // const view = <h1>Trang chủ đang trong quá trình hoàn thành</h1>;
   return (
     <div className="App">
       <Header />
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/admin/manager" element={<Posting />} />
-        <Route path="/thue-nha-dat" element={<NewFeed />} />
-        <Route path="/mua-nha-dat" element={<NewFeed />} />
-        <Route path="/thue-phong-tro" element={<NewFeed />} />
-
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <RouterApp />
     </div>
   );
 }
-
-export default App;

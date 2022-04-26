@@ -2,64 +2,7 @@ import React from "react";
 import Post from "../../components/Post/Post";
 import "./NewFeed.scss";
 
-function NewFeed() {
-  // const datas = [
-  //   {
-  //     title:
-  //       "CHỌ THUÊ VĂN PHÒNG ĐỦ NỘI THẤT TÒA 29T1 HOÀNG ĐẠO THÚY, CẦU GIẤY, DT 10-20-30-50-100-200-500M2",
-  //     price: "Giá thỏa thuận",
-  //     area: 70,
-  //     location: "Hoàng Mai, Hà Nội",
-  //     description:
-  //       "Bán căn shophouse ngoại giao The Manor Central Park. Tổng giá 27,5 tỷ giá hợp đồng 2x tỷ. Căn thuộc block 16TM1 hướng đẹp, trước nhà là công viên nội khu. Bao giá rẻ nhất thị trường. Căn ngoại giao nhưng vẫn được hưởng chiết khấu và chính sách bình thường của chủ đầu tư. Đầu tư mua là thắng. Liên hệ em Hà biết mã căn số tiền hợp đồng thực tế SĐT: ",
-  //   },
-  //   {
-  //     title:
-  //       "CHO THUÊ VĂN PHÒNG ĐỦ NỘI THẤT TÒA 29T1 HOÀNG ĐẠO THÚY, CẦU GIẤY, DT 10-20-30-50-100-200-500M2",
-  //     price: "Giá thỏa thuận",
-  //     area: 70,
-  //     location: "Hoàng Mai, Hà Nội",
-  //     description:
-  //       "Bán căn shophouse ngoại giao The Manor Central Park. Tổng giá 27,5 tỷ giá hợp đồng 2x tỷ. Căn thuộc block 16TM1 hướng đẹp, trước nhà là công viên nội khu. Bao giá rẻ nhất thị trường. Căn ngoại giao nhưng vẫn được hưởng chiết khấu và chính sách bình thường của chủ đầu tư. Đầu tư mua là thắng. Liên hệ em Hà biết mã căn số tiền hợp đồng thực tế SĐT: ",
-  //   },
-  //   {
-  //     title:
-  //       "CHO THUÊ VĂN PHÒNG ĐỦ NỘI THẤT TÒA 29T1 HOÀNG ĐẠO THÚY, CẦU GIẤY, DT 10-20-30-50-100-200-500M2",
-  //     price: "Giá thỏa thuận",
-  //     area: 70,
-  //     location: "Hoàng Mai, Hà Nội",
-  //     description:
-  //       "Bán căn shophouse ngoại giao The Manor Central Park. Tổng giá 27,5 tỷ giá hợp đồng 2x tỷ. Căn thuộc block 16TM1 hướng đẹp, trước nhà là công viên nội khu. Bao giá rẻ nhất thị trường. Căn ngoại giao nhưng vẫn được hưởng chiết khấu và chính sách bình thường của chủ đầu tư. Đầu tư mua là thắng. Liên hệ em Hà biết mã căn số tiền hợp đồng thực tế SĐT: ",
-  //   },
-  //   {
-  //     title:
-  //       "CHO THUÊ VĂN PHÒNG ĐỦ NỘI THẤT TÒA 29T1 HOÀNG ĐẠO THÚY, CẦU GIẤY, DT 10-20-30-50-100-200-500M2",
-  //     price: "Giá thỏa thuận",
-  //     area: 70,
-  //     location: "Hoàng Mai, Hà Nội",
-  //     description:
-  //       "Bán căn shophouse ngoại giao The Manor Central Park. Tổng giá 27,5 tỷ giá hợp đồng 2x tỷ. Căn thuộc block 16TM1 hướng đẹp, trước nhà là công viên nội khu. Bao giá rẻ nhất thị trường. Căn ngoại giao nhưng vẫn được hưởng chiết khấu và chính sách bình thường của chủ đầu tư. Đầu tư mua là thắng. Liên hệ em Hà biết mã căn số tiền hợp đồng thực tế SĐT: ",
-  //   },
-  //   {
-  //     title:
-  //       "CHO THUÊ VĂN PHÒNG ĐỦ NỘI THẤT TÒA 29T1 HOÀNG ĐẠO THÚY, CẦU GIẤY, DT 10-20-30-50-100-200-500M2",
-  //     price: "Giá thỏa thuận",
-  //     area: 70,
-  //     location: "Hoàng Mai, Hà Nội",
-  //     description:
-  //       "Bán căn shophouse ngoại giao The Manor Central Park. Tổng giá 27,5 tỷ giá hợp đồng 2x tỷ. Căn thuộc block 16TM1 hướng đẹp, trước nhà là công viên nội khu. Bao giá rẻ nhất thị trường. Căn ngoại giao nhưng vẫn được hưởng chiết khấu và chính sách bình thường của chủ đầu tư. Đầu tư mua là thắng. Liên hệ em Hà biết mã căn số tiền hợp đồng thực tế SĐT: ",
-  //   },
-  //   {
-  //     title:
-  //       "CHO THUÊ VĂN PHÒNG ĐỦ NỘI THẤT TÒA 29T1 HOÀNG ĐẠO THÚY, CẦU GIẤY, DT 10-20-30-50-100-200-500M2",
-  //     price: "Giá thỏa thuận",
-  //     area: 70,
-  //     location: "Hoàng Mai, Hà Nội",
-  //     description:
-  //       "Bán căn shophouse ngoại giao The Manor Central Park. Tổng giá 27,5 tỷ giá hợp đồng 2x tỷ. Căn thuộc block 16TM1 hướng đẹp, trước nhà là công viên nội khu. Bao giá rẻ nhất thị trường. Căn ngoại giao nhưng vẫn được hưởng chiết khấu và chính sách bình thường của chủ đầu tư. Đầu tư mua là thắng. Liên hệ em Hà biết mã căn số tiền hợp đồng thực tế SĐT: ",
-  //   },
-  // ];
-
+export default function NewFeed() {
   return (
     <section className="vh-100">
       <div className="container-fluid h-custom">
@@ -94,5 +37,3 @@ function NewFeed() {
     </section>
   );
 }
-
-export default NewFeed;

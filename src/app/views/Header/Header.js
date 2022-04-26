@@ -2,7 +2,7 @@ import React from "react";
 // import PropTypes from "prop-types";
 import Logo from "../../assets/img/logo/MCLANDLOGO.png";
 import HeaderNav from "../../components/HeaderNav/HeaderNav";
-import { Link } from "react-router-dom";
+import HeaderRight from "../../components/HeaderRight/HeaderRight";
 import "./Header.scss";
 
 function Header() {
@@ -41,13 +41,7 @@ function Header() {
           </div>
           <div className="header-right">
             <div className="row-right">
-              <Link
-                to="/admin/manager"
-                type="button"
-                className="btn btn-success"
-              >
-                Đăng bài
-              </Link>
+              <HeaderRight />
             </div>
           </div>
         </div>

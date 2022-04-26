@@ -2,6 +2,13 @@
     overflow:hidden;
     text-overflow:ellipsis;
 }
+
+.s-hover:hover {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important
+}
+.s-hover a {
+    color: #4c4c4c;
+    text-decoration: none;
     .text-f_title {
         @include text-format;
         font-weight: 700;
@@ -9,7 +16,6 @@
         padding-top:5px;
     }
     .text-f_description {
-        // display: -webkit-box;
         max-height: calc(24px*3);
         -webkit-line-clamp: 3;
         overflow:hidden;
@@ -18,3 +24,4 @@
         display: -webkit-box;
         overflow: hidden !important;
     }
+}

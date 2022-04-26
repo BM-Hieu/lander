@@ -7,7 +7,7 @@ function HeaderNav() {
     <ul className="row-page">
       <li>
         <label htmlFor="nav-mobile-input">
-          <NavLink to="/thue-nha-dat">
+          <NavLink to="thue-nha-dat">
             <span>Thuê nhà đất</span>
           </NavLink>
         </label>
@@ -21,7 +21,7 @@ function HeaderNav() {
       </li>
       <li>
         <label htmlFor="nav-mobile-input">
-          <NavLink to="/thue-phong-tro">
+          <NavLink to="thue-phong-tro">
             <span>Thuê phòng trọ</span>
           </NavLink>
         </label>
