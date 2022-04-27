@@ -1,8 +1,9 @@
 import { React } from "react";
+import './ManagerMember.scss'
 
 const ManagerMember = () => {
     return (
-        <div className="container vh-100">
+        <div className="container ctn-custom">
             <div className="row pt-3">
                 <h1 className="text-center">Quản lí thành viên</h1>
                 <table className="table table-success">

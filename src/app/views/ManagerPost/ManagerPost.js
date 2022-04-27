@@ -1,8 +1,9 @@
 import { React } from "react";
+import "./ManagerPost.scss"
 
 const ManagerMember = () => {
     return (
-        <div className="container-fuild vh-100">
+        <div className="container-fuild ctn-custom">
             <div className="mx-3 pt-3">
                 <h1 className="text-center">Quản lí bài viết</h1>
                 <table className="table table-success table-responsive">
@@ -45,6 +46,199 @@ const ManagerMember = () => {
                             <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
                             <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
                         </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Bùi Hữu Minh Hiêu</td>
+                            <td>bmh.jamerr@gmail.com</td>
+                            <td>0980564523</td>
+                            <td><span className="badge bg-info text-dark">Quản trị viên</span></td>
+                            <td><button type="button" className="btn btn-outline-success">Sửa</button>{" "}<button type="button" className="btn btn-outline-danger">Xóa</button></td>
+                        </tr>
+
                     </tbody>
                 </table>
             </div>

@@ -6,7 +6,8 @@
   background: #eee;
 }
 .h-custom {
-  max-width: 100%;
+    height: auto;
+    min-height: 100vh;
     .m-custom{
         text-align: center;
         .img-login {

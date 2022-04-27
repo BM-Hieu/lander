@@ -3,7 +3,6 @@ import LoginContact from "../../assets/img/logo/logocontactmcland.png";
 
 const Contact = () => {
   return (
-    <section className="vh-100">
       <div className="container-fluid h-custom">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-md-9 col-lg-6 col-xl-5 m-custom">
@@ -28,7 +27,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
   );
 };
 

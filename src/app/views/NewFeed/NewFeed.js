@@ -4,7 +4,6 @@ import "./NewFeed.scss";
 
 export default function NewFeed() {
   return (
-    <section className="vh-100">
       <div className="container-fluid h-custom">
         <div className="row nf-row_custom">
           <div className="nf-search">
@@ -34,6 +33,5 @@ export default function NewFeed() {
           </div>
         </div>
       </div>
-    </section>
   );
 }
