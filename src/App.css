@@ -1,9 +1,13 @@
 @use 'styles/_colors.scss';
 @use '~nprogress/nprogress';
 
+.App {
+  position: relative;
+}
+
 .App-logo {
   height: 40vmin;
-  pointer-events: none;
+  pointer-events: nonee
 }
 
 @media (prefers-reduced-motion: no-preference) {

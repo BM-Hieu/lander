@@ -25,10 +25,6 @@ function CreatePost() {
     { value: "homestay", title: "Phòng trọ" },
   ];
 
-  console.log("city", dataCity);
-  console.log("quan", checkDistricts);
-  console.log("phuong", checkWards);
-
   const {
     register,
     handleSubmit,
@@ -36,51 +32,70 @@ function CreatePost() {
   } = useForm({
     reValidateMode: "onSubmit",
     defaultValues: {
-      username: "",
-      password: "",
+      want: "",
+      classify: "",
+      title: "",
+      location: {
+        address: "",
+        city: "",
+        district: "",
+        ward: "",
+      },
+      utilities: {
+        acreage: "",
+        price: "",
+        bedroom: "",
+        bathroom: "",
+      },
+      description: "",
     },
   });
 
   return (
-    <div className="container">
+    <div style={{ minHeight: "100vh" }} className="container">
       <div className="row pt-3">
         <h1 className="text-center">Đăng bài</h1>
-        <form>
+        <form onSubmit={handleSubmit((res) => console.log(res))}>
           <div className="row">
             <div className="col-6">
               <span className="title-input ">Bạn muốn: </span>
               <input
+                {...register("want", { required: true })}
                 type="radio"
                 onChange={(e) => optionSelectorArea("sell")}
                 className="btn-check r-sell"
-                name="options"
-                defaultValue={sell}
+                defaultValue="sell"
                 id="option1"
-                autoComplete="off"
               />
-              <label className="btn btn-custom_l form-control-lg" for="option1">
+              <label
+                className="btn btn-custom_l form-control-lg"
+                htmlFor="option1"
+              >
                 Bán
               </label>
               <input
+                {...register("want", { required: true })}
                 type="radio"
                 onChange={(e) => optionSelectorArea("rent")}
                 className="btn-check r-rent"
-                name="options"
-                defaultValue={rent}
+                defaultValue="rent"
                 id="option2"
-                autoComplete="off"
               />
-              <label className="btn btn-custom_r form-control-lg" for="option2">
+              <label
+                className="btn btn-custom_r form-control-lg"
+                htmlFor="option2"
+              >
                 Cho thuê
               </label>
             </div>
             <div className="col-6">
               <select
+                type="select"
                 Disable={!sell && !rent ? true : false}
                 className="form-select"
-                aria-label="select example"
+                {...register("classify", { required: true })}
               >
-                <option>Chọn bất động sản</option>
+                <option></option>
                 {sell
                   ? optionSell.map((data) => (
                       <option value={data.value}>{data.title}</option>
@@ -94,38 +109,36 @@ function CreatePost() {
               </select>
             </div>
             <div className="mt-3">
-              <label for="exampleInput" className="form-label">
+              <label htmlFor="exampleInput" className="form-label">
                 Tiêu đề bài viết:
               </label>
               <input
-                id="exampleInput"
                 className="form-control form-control-lg"
                 type="text"
+                {...register("title", { required: true })}
                 placeholder="Tiêu đề của bạn"
-                aria-label=".form-control-lg example"
               ></input>
             </div>
             <div className="mt-3">
-              <label for="exampleInput" className="form-label">
+              <label htmlFor="exampleInput" className="form-label">
                 Địa chỉ:
               </label>
               <input
-                id="exampleInput"
                 className="form-control"
                 type="text"
+                {...register("location.address", { required: true })}
                 placeholder="(ví trí khu đất, nhà, phòng trọ...)"
-                aria-label=".form-control-lg example"
               ></input>
             </div>
             <div className="row mt-3">
               <div className="col-4">
-                <label for="exampleInput" className="form-label">
+                <label htmlFor="exampleInput" className="form-label">
                   Thành phố/Tỉnh:
                 </label>
                 <select
                   Disable={!sell && !rent ? true : false}
                   className="form-select"
-                  aria-label="select example"
+                  {...register("location.city", { required: true })}
                   onChange={(e) => {
                     const districtsOfLand = dataCity.find(
                       (data) => data.code === e.target.value
@@ -140,13 +153,13 @@ function CreatePost() {
                 </select>
               </div>
               <div className="col-4">
-                <label for="exampleInput" className="form-label">
+                <label htmlFor="exampleInput" className="form-label">
                   Quận/Huyện:
                 </label>
                 <select
                   Disable={!sell && !rent ? true : false}
                   className="form-select"
-                  aria-label="select example"
+                  {...register("district", { required: true })}
                   onChange={(e) => {
                     const wardsOfLand = checkDistricts.find(
                       (data) => data.name === e.target.value
@@ -161,13 +174,13 @@ function CreatePost() {
                 </select>
               </div>
               <div className="col-4">
-                <label for="exampleInput" className="form-label">
+                <label htmlFor="exampleInput" className="form-label">
                   Phường/Xã:
                 </label>
                 <select
                   Disable={!sell && !rent ? true : false}
                   className="form-select"
-                  aria-label="select example"
+                  {...register("location.ward", { required: true })}
                 >
                   <option>Phường/Xã</option>
                   {checkWards.map((ward) => (
@@ -177,28 +190,34 @@ function CreatePost() {
               </div>
             </div>
             <div className="row mt-3">
-              <div className="col-2">
-                <label for="inputPassword" className="col-sm-5 col-form-label">
+              <div className="col-3">
+                <label
+                  htmlFor="inputPassword"
+                  className="col-sm-5 col-form-label"
+                >
                   Diện tích
                 </label>
                 <div className="input-group">
                   <input
                     type="text"
                     className="form-control"
-                    aria-label="Dollar amount (with dot and two decimal places)"
+                    {...register("utilities.acreage", { required: true })}
                   />
                   <span className="input-group-text">m²</span>
                 </div>
               </div>
-              <div className="col-2">
-                <label for="inputPassword" className="col-sm-4 col-form-label">
+              <div className="col-3">
+                <label
+                  htmlFor="inputPassword"
+                  className="col-sm-4 col-form-label"
+                >
                   Giá cả:
                 </label>
                 <div className="input-group">
                   <input
                     type="text"
                     className="form-control"
-                    aria-label="Dollar amount (with dot and two decimal places)"
+                    {...register("utilities.price", { required: true })}
                   />
                   <select className="input-group-text">
                     <option value="1">Triệu</option>
@@ -206,54 +225,31 @@ function CreatePost() {
                   </select>
                 </div>
               </div>
-              <div className="col-2">
+              <div className="col-3">
                 <label for="inputPassword" className="col-form-label">
-                  Diện tích
+                  Phòng ngủ
                 </label>
                 <div className="input-group">
                   <input
                     type="text"
                     className="form-control"
-                    aria-label="Dollar amount (with dot and two decimal places)"
+                    {...register("utilities.bedroom")}
                   />
                   <span className="input-group-text">m²</span>
                 </div>
               </div>
-              <div className="col-2">
-                <label for="inputPassword" className="col-sm-5 col-form-label">
-                  Diện tích
+              <div className="col-3">
+                <label
+                  htmlFor="inputPassword"
+                  className="col-sm-5 col-form-label"
+                >
+                  Phòng tắm
                 </label>
                 <div className="input-group">
                   <input
                     type="text"
                     className="form-control"
-                    aria-label="Dollar amount (with dot and two decimal places)"
-                  />
-                  <span className="input-group-text">m²</span>
-                </div>
-              </div>
-              <div className="col-2">
-                <label for="inputPassword" className="col-sm-5 col-form-label">
-                  Diện tích
-                </label>
-                <div className="input-group">
-                  <input
-                    type="text"
-                    className="form-control"
-                    aria-label="Dollar amount (with dot and two decimal places)"
-                  />
-                  <span className="input-group-text">m²</span>
-                </div>
-              </div>
-              <div className="col-2">
-                <label for="inputPassword" className="col-sm-5 col-form-label">
-                  Diện tích
-                </label>
-                <div className="input-group">
-                  <input
-                    type="text"
-                    className="form-control"
-                    aria-label="Dollar amount (with dot and two decimal places)"
+                    {...register("utilities.bathroom")}
                   />
                   <span className="input-group-text">m²</span>
                 </div>
@@ -267,11 +263,11 @@ function CreatePost() {
               <textarea
                 for="exampleInput"
                 className="form-control"
-                aria-label="With textarea"
+                {...register("description", { required: true })}
               ></textarea>
             </div>
             <div className="pt-3">
-              <label for="formFileLg" className="form-label">
+              <label htmlFor="formFileLg" className="form-label">
                 Chọn ảnh
               </label>
               <input
@@ -282,7 +278,7 @@ function CreatePost() {
             </div>
           </div>
           <div className="text-center mt-3">
-            <button type="button" className="btn btn-primary btn-lg ">
+            <button type="submit" className="btn btn-primary btn-lg ">
               Đăng bài
             </button>
           </div>

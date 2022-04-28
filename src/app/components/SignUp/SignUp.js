@@ -11,7 +11,7 @@ function SignUp() {
   } = useForm({
     defaultValues: {
       name: "",
-      username: "",
+      email: "",
       password: "",
       telephone: "",
       role: "mod",
@@ -65,7 +65,7 @@ function SignUp() {
             className="form-control form-control-lg"
             placeholder="Điền tài khoản"
           />
-          <label className="form-label">Tài khoản</label>
+          <label className="form-label">Email</label>
         </div>
         <div className="form-outline mb-3">
           <input
