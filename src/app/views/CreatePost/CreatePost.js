@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import postsApi from "../../api/postsApi";
 import dataCity from "./local.json";
 import "./CreatePost.scss";
 
@@ -33,13 +34,9 @@ function CreatePost() {
     reValidateMode: "onSubmit",
     defaultValues: {
       want: "",
-      classify: "",
       title: "",
       location: {
         address: "",
-        city: "",
-        district: "",
-        ward: "",
       },
       utilities: {
         acreage: "",
@@ -51,13 +48,24 @@ function CreatePost() {
     },
   });
 
+  const onSubmit = (data) => {
+    postsApi
+      .create(data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div style={{ minHeight: "100vh" }} className="container">
       <div className="row pt-3">
         <h1 className="text-center">Đăng bài</h1>
-        <form onSubmit={handleSubmit((res) => console.log(res))}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row">
-            <div className="col-6">
+            <div className="col-12 col-md-6 pb-3">
               <span className="title-input ">Bạn muốn: </span>
               <input
                 {...register("want", { required: true })}
@@ -88,14 +96,16 @@ function CreatePost() {
                 Cho thuê
               </label>
             </div>
-            <div className="col-6">
+            <div className="col-12 col-md -6">
               <select
                 type="select"
                 Disable={!sell && !rent ? true : false}
                 className="form-select"
                 {...register("classify", { required: true })}
               >
-                <option></option>
+                <option disabled selected>
+                  Chọn bật động sản
+                </option>
                 {sell
                   ? optionSell.map((data) => (
                       <option value={data.value}>{data.title}</option>
@@ -131,7 +141,7 @@ function CreatePost() {
               ></input>
             </div>
             <div className="row mt-3">
-              <div className="col-4">
+              <div className="col-12 col-sm-4">
                 <label htmlFor="exampleInput" className="form-label">
                   Thành phố/Tỉnh:
                 </label>
@@ -141,25 +151,27 @@ function CreatePost() {
                   {...register("location.city", { required: true })}
                   onChange={(e) => {
                     const districtsOfLand = dataCity.find(
-                      (data) => data.code === e.target.value
+                      (data) => data.name === e.target.value
                     );
                     setCheckDistricts(districtsOfLand.districts);
                   }}
                 >
-                  <option>Chọn bất động sản</option>
+                  <option disabled selected>
+                    Thành phố/Tỉnh
+                  </option>
                   {dataCity.map((city) => (
-                    <option value={city.code}>{city.name}</option>
+                    <option value={city?.name}>{city?.name}</option>
                   ))}
                 </select>
               </div>
-              <div className="col-4">
+              <div className="col-12 col-sm-4">
                 <label htmlFor="exampleInput" className="form-label">
                   Quận/Huyện:
                 </label>
                 <select
                   Disable={!sell && !rent ? true : false}
                   className="form-select"
-                  {...register("district", { required: true })}
+                  {...register("location.district", { required: true })}
                   onChange={(e) => {
                     const wardsOfLand = checkDistricts.find(
                       (data) => data.name === e.target.value
@@ -167,13 +179,15 @@ function CreatePost() {
                     setCheckWards(wardsOfLand.wards);
                   }}
                 >
-                  <option>Quận/Huyện</option>
+                  <option disabled selected>
+                    Quận/Huyện
+                  </option>
                   {checkDistricts?.map((dist) => (
-                    <option value={dist?.name}>{dist.name}</option>
+                    <option value={dist?.name}>{dist?.name}</option>
                   ))}
                 </select>
               </div>
-              <div className="col-4">
+              <div className="col-12 col-sm-4">
                 <label htmlFor="exampleInput" className="form-label">
                   Phường/Xã:
                 </label>
@@ -182,7 +196,9 @@ function CreatePost() {
                   className="form-select"
                   {...register("location.ward", { required: true })}
                 >
-                  <option>Phường/Xã</option>
+                  <option disabled selected>
+                    Phường/Xã
+                  </option>
                   {checkWards.map((ward) => (
                     <option value={ward.name}>{ward.name}</option>
                   ))}
@@ -190,11 +206,8 @@ function CreatePost() {
               </div>
             </div>
             <div className="row mt-3">
-              <div className="col-3">
-                <label
-                  htmlFor="inputPassword"
-                  className="col-sm-5 col-form-label"
-                >
+              <div className="col-6 col-sm-3">
+                <label htmlFor="inputPassword" className="col-form-label">
                   Diện tích
                 </label>
                 <div className="input-group">
@@ -206,11 +219,8 @@ function CreatePost() {
                   <span className="input-group-text">m²</span>
                 </div>
               </div>
-              <div className="col-3">
-                <label
-                  htmlFor="inputPassword"
-                  className="col-sm-4 col-form-label"
-                >
+              <div className="col-6 col-sm-3">
+                <label htmlFor="inputPassword" className="col-form-label">
                   Giá cả:
                 </label>
                 <div className="input-group">
@@ -225,7 +235,7 @@ function CreatePost() {
                   </select>
                 </div>
               </div>
-              <div className="col-3">
+              <div className="col-6 col-sm-3">
                 <label for="inputPassword" className="col-form-label">
                   Phòng ngủ
                 </label>
@@ -238,11 +248,8 @@ function CreatePost() {
                   <span className="input-group-text">m²</span>
                 </div>
               </div>
-              <div className="col-3">
-                <label
-                  htmlFor="inputPassword"
-                  className="col-sm-5 col-form-label"
-                >
+              <div className="col-6 col-sm-3">
+                <label htmlFor="inputPassword" className="col-form-label">
                   Phòng tắm
                 </label>
                 <div className="input-group">

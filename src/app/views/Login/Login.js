@@ -2,21 +2,17 @@ import { React, useEffect, useState } from "react";
 import LoginImg from "../../assets/img/logo/pagelogin.png";
 import usersApi from "../../api/usersApi";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { ErrorMessage } from "@hookform/error-message";
-import auth from "../../middleware/auth";
 
 import "./Login.scss";
 
 import SignUp from "../../components/SignUp/SignUp";
 
 const Login = () => {
+  const [isAuth, setIsAuth] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
-  // const [user, setUser] = useState(null);
-  useEffect(() => {
-    if (auth) {
-      setShowRegister(true);
-    }
-  }, []);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -25,17 +21,25 @@ const Login = () => {
   } = useForm({
     reValidateMode: "onSubmit",
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
     },
   });
 
-  const onSubmit = async (data) => {
-    await usersApi
+  useEffect(() => {
+    if (isAuth) {
+      return navigate("/thue-nha-dat");
+    }
+  }, [isAuth, navigate]);
+
+  const onSubmit = (data) => {
+    usersApi
       .login(data)
-      .then((response) => {
-        localStorage.setItem("token", response.token);
-        console.log(response.token);
+      .then((res) => {
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("user", JSON.stringify(res.user));
+        window.dispatchEvent(new Event("storage"));
+        setIsAuth(true);
       })
       .catch((error) => {
         console.log(error);

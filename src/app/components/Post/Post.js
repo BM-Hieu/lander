@@ -1,12 +1,15 @@
 import { React, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import moment from "moment";
+import "moment/locale/vi";
 import postApi from "../../api/postsApi";
 import "./Post.scss";
+moment.locale("vi");
 
 function Post() {
   const params = useParams();
   console.log("params", params);
-  const [datas, setData] = useState(null);
+  const [datas, setData] = useState([]);
 
   useEffect(() => {
     const fetchLands = async () => {
@@ -20,7 +23,7 @@ function Post() {
     fetchLands();
   }, []);
 
-  if (!datas) {
+  if (datas.length <= 0) {
     return (
       <div className="d-flex justify-content-center">
         <div className="spinner-border" role="status">
@@ -34,17 +37,17 @@ function Post() {
     <>
       {datas?.map((data, key) => (
         <div className="card shadow-sm mb-3 s-hover">
-          <Link to={`/thue-nha-dat/${data._id}`}>
+          <Link to={`/thue-nha-dat/${data.slug}`}>
             <div className="row g-0">
               <div className="col-md-4">
                 <img
                   src="https://file4.batdongsan.com.vn/resize/745x510/2022/02/15/20220215122733-8673_wm.jpg"
-                  className="img-fluid rounded-start"
+                  className="img-fluid rounded-start img-card"
                   alt="thumb-post"
                 />
               </div>
               <div className="col-md-8">
-                <div className="card-body p-3 mb-5 h-100">
+                <div className="card-body p-3 h-100">
                   <h5 className="card-title text-f_title">{data.title}</h5>
                   <div>
                     <span>{data.utilities.price}Tỷ</span> *{" "}
@@ -58,7 +61,9 @@ function Post() {
                     {data.description}
                   </p>
                   <p className="card-text">
-                    <small className="text-muted">3 phút trước</small>
+                    <small className="text-muted">
+                      {moment(data.createdAt).fromNow()}
+                    </small>
                   </p>
                 </div>
               </div>

@@ -17,7 +17,7 @@ function Footer() {
           style={Stylefooter}
           className="text-white fst-italic m-0 p-3 text-center  p-0 mt-5"
         >
-          @ 2022 Copyright: MC-Lande
+          @ 2022 Copyright: MC-Lander
         </p>
       </div>
     </>
