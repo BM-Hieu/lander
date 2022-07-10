@@ -1,10 +1,9 @@
 import axiosClient from "./axiosClient";
 
 const uploadApi = {
-  upload(data) {
+  upload(data, config) {
     const url = "/uploads/photos";
-    return axiosClient.post(url, data,);
+    return axiosClient.post(url, data, config);
   },
 };
-
 export default uploadApi;

@@ -7,6 +7,7 @@ import "./InforLand.scss";
 function InforLand() {
   const slug = useParams().id;
   const [land, setLand] = useState();
+  const [isTruncate, setIsTruncate] = useState(true);
 
   useEffect(() => {
     const fetchLands = () => {
@@ -15,11 +16,13 @@ function InforLand() {
     fetchLands();
   }, [slug]);
 
+  console.log("info", land);
+
   return (
     <div className="container">
       {land?.map((data) => (
         <div className="row pt-5">
-          <ReviewImages />
+          <ReviewImages photos={data.photos} />
           <div className="authors_inforland-elm"></div>
 
           <div className="infor_del-description">
@@ -41,7 +44,7 @@ function InforLand() {
                       Người đăng bài:
                     </span>
                     <span className="profile_celler-author__name">
-                      Thiều Quang Mạnh Cường
+                      {data.author.name}
                     </span>
                   </div>
                   <div className="profile_celler-info">
@@ -51,33 +54,41 @@ function InforLand() {
                         id="telephone"
                         className="profile_celler-info__hotline"
                       >
-                        0905156164
+                        {data.author.telephone}
                       </span>
                     </div>
                     <div>
                       <i className="fa-solid fa-envelope"></i>
                       <span className="profile_celler-info__mail">
-                        manhcuongland@gmail.com
+                        {data.author.email}
                       </span>
                     </div>
                   </div>
                 </div>
                 <div className="infor-lander">
                   <div className="utilities-item">
-                    <span className="title">Mức giá</span>
+                    <span className="title">
+                      <i class="fa-solid fa-sack-dollar"></i> Mức giá
+                    </span>
                     <span className="value">15tr/tháng</span>
                   </div>
                   <div className="utilities-item">
-                    <span className="title">Mức giá</span>
-                    <span className="value">15tr/tháng</span>
+                    <span className="title">
+                      <i class="fa-solid fa-ruler-combined"></i> Diện tích
+                    </span>
+                    <span className="value">100m2</span>
                   </div>
                   <div className="utilities-item">
-                    <span className="title">Mức giá</span>
-                    <span className="value">15tr/tháng</span>
+                    <span className="title">
+                      <i class="fa-solid fa-bed"></i> Phòng ngủ
+                    </span>
+                    <span className="value">2 phòng</span>
                   </div>
                   <div className="utilities-item">
-                    <span className="title">Mức giá</span>
-                    <span className="value">15tr/tháng</span>
+                    <span className="title">
+                      <i class="fa-solid fa-bath"></i> Phòng tắm
+                    </span>
+                    <span className="value">1 phòng</span>
                   </div>
                 </div>
               </div>
@@ -85,8 +96,21 @@ function InforLand() {
 
             <div className="infor-descreption">
               <h4>Thông tin mô tả</h4>
-
-              <p className="content-descreption">{data.description}</p>
+              <p
+                className={
+                  isTruncate
+                    ? "content-descreption-truncate"
+                    : "content-descreption"
+                }
+              >
+                {data.description}
+              </p>
+              <span
+                className="watch-continue"
+                onClick={() => setIsTruncate(!isTruncate)}
+              >
+                {isTruncate ? "...Xem thêm" : "...Rút gọn"}
+              </span>
             </div>
           </div>
         </div>

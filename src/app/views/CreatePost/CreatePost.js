@@ -2,7 +2,9 @@ import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import postsApi from "../../api/postsApi";
+import uploadApi from "../../api/uploadApi";
 import dataCity from "./local.json";
+import { useNavigate } from "react-router-dom";
 import "./CreatePost.scss";
 
 function CreatePost() {
@@ -10,6 +12,7 @@ function CreatePost() {
   const [rent, setRent] = useState(false);
   const [checkDistricts, setCheckDistricts] = useState([]);
   const [checkWards, setCheckWards] = useState([]);
+  const navigate = useNavigate();
 
   const optionSelectorArea = (e) => {
     setSell(e === "sell");
@@ -35,8 +38,12 @@ function CreatePost() {
     defaultValues: {
       want: "",
       title: "",
+      classify: "",
       location: {
         address: "",
+        city: "",
+        ward: "",
+        district: "",
       },
       utilities: {
         acreage: "",
@@ -48,11 +55,30 @@ function CreatePost() {
     },
   });
 
-  const onSubmit = (data) => {
-    postsApi
-      .create(data)
+  const onSubmit = async (data) => {
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: localStorage.getItem("token"),
+      },
+    };
+    let formData = new FormData();
+    const files = data.files;
+    for (let i = 0; i < files.length; i++) {
+      let file = files.item(i);
+      const s = `photo`;
+      formData.append(s, file);
+      console.log(file);
+      console.log(formData);
+    }
+    await uploadApi
+      .upload(formData, config)
       .then((response) => {
-        console.log(response);
+        const photos = response.photos;
+        const postData = { ...data, photos };
+        postsApi.create(postData, config).then((res) => {
+          navigate(`/${res.slug}`);
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -280,7 +306,9 @@ function CreatePost() {
               <input
                 className="form-control form-control-lg"
                 id="formFileLg"
+                {...register("files")}
                 type="file"
+                multiple
               />
             </div>
           </div>

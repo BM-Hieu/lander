@@ -88,5 +88,16 @@ $main-line: #d0d0d0;
             width: 100%; 
             white-space: pre-line;
         }
+        .content-descreption-truncate {
+            display: -webkit-box;
+            -webkit-line-clamp: 10;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .watch-continue {
+            float: right;
+            font-weight: 700;
+            cursor: pointer;
+        }
     }
 }

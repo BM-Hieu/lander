@@ -8,11 +8,15 @@ import { ErrorMessage } from "@hookform/error-message";
 import "./Login.scss";
 
 import SignUp from "../../components/SignUp/SignUp";
+import { useDispatch, useSelector } from "react-redux";
+import { loginAct } from "../../reducers/authState/authAction";
 
 const Login = () => {
   const [isAuth, setIsAuth] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state);
 
   const {
     register,
@@ -26,19 +30,13 @@ const Login = () => {
     },
   });
 
-  useEffect(() => {
-    if (isAuth) {
-      return navigate("/thue-nha-dat");
-    }
-  }, [isAuth, navigate]);
-
   const onSubmit = (data) => {
     usersApi
       .login(data)
       .then((res) => {
         localStorage.setItem("token", res.token);
-        localStorage.setItem("user", JSON.stringify(res.user));
-        window.dispatchEvent(new Event("storage"));
+        localStorage.setItem("user", JSON.stringify(res.infoUser));
+        dispatch(loginAct({ accesssToken: res.token, user: res.infoUser }));
         setIsAuth(true);
       })
       .catch((error) => {

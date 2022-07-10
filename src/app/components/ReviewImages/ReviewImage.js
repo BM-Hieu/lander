@@ -2,16 +2,11 @@ import { React, useState } from "react";
 import Slider from "react-slick";
 import "./ReviewImage.scss";
 
-function ReviewImages() {
-  const dataImg = [
-    "https://file4.batdongsan.com.vn/2022/03/10/20220310100125-3fff_wm.jpg",
-    "https://file4.batdongsan.com.vn/2022/03/10/20220310100124-087d_wm.jpg",
-    "https://file4.batdongsan.com.vn/2022/03/10/20220310100125-f49f_wm.jpg",
-    "https://file4.batdongsan.com.vn/2022/03/10/20220310100124-45fe_wm.jpg",
-    "https://file4.batdongsan.com.vn/2022/03/10/20220310100125-7295_wm.jpg",
-    "https://file4.batdongsan.com.vn/2022/03/10/20220310100124-a1f5_wm.jpg",
-    "https://file4.batdongsan.com.vn/2022/03/10/20220310100125-7d3e_wm.jpg",
-  ];
+function ReviewImages({ photos }) {
+  const formatFileImg = photos.map(
+    (img) => "http://localhost:4000/public/" + img
+  );
+  const dataImg = formatFileImg;
 
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);

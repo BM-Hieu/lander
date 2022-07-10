@@ -18,7 +18,6 @@ function Post() {
       };
       const landsList = await postApi.get(params);
       setData(landsList);
-      console.log("api", landsList);
     };
     fetchLands();
   }, []);
@@ -33,15 +32,19 @@ function Post() {
     );
   }
 
+  console.log(process.env.REACT_APP_URL_API + `public/${datas}`);
+
   return (
     <>
       {datas?.map((data, key) => (
-        <div className="card shadow-sm mb-3 s-hover">
-          <Link to={`/thue-nha-dat/${data.slug}`}>
+        <div key={key} className="card shadow-sm mb-3 s-hover">
+          <Link to={`/${data.slug}`}>
             <div className="row g-0">
               <div className="col-md-4">
                 <img
-                  src="https://file4.batdongsan.com.vn/resize/745x510/2022/02/15/20220215122733-8673_wm.jpg"
+                  src={
+                    process.env.REACT_APP_URL_API + `public/${data.photos[0]}`
+                  }
                   className="img-fluid rounded-start img-card"
                   alt="thumb-post"
                 />

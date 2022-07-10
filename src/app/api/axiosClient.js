@@ -4,6 +4,7 @@ const axiosClient = axios.create({
   baseURL: "http://localhost:4000/",
   headers: {
     "Content-Type": "application/json",
+    Authorization: localStorage.getItem("token"),
   },
 });
 
@@ -11,7 +12,6 @@ export default axiosClient;
 
 axiosClient.interceptors.request.use(
   function (config) {
-    // Do something before request is sent
     return config;
   },
   function (error) {
@@ -19,7 +19,6 @@ axiosClient.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-axios.post();
 // Add a response interceptor
 axiosClient.interceptors.response.use(
   function (response) {

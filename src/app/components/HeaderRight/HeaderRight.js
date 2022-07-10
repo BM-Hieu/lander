@@ -1,28 +1,36 @@
 import { React, useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../../reducers/authState/authAction";
+import usersApi from "../../api/usersApi";
+import { checkTokenSuccess } from "../../reducers/authState/authAction";
 import "./HeaderRight.scss";
 
 function HeaderRight() {
-  const [isLogin, setIsLogin] = useState(false);
   const [isUser, setIsUser] = useState(null);
+  const checkAuth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
-    window.addEventListener("storage", () => {
-      console.log("change to local storage!");
-      setIsLogin(true);
-    });
-    console.log(localStorage.getItem("token"));
-    if (window.localStorage.getItem("token") && isLogin) {
-      // setIsLogin(true);
-      console.log(JSON.parse(localStorage.getItem("user")));
-      setIsUser(JSON.parse(localStorage.getItem("user")));
-      console.log("ok");
+    if (checkAuth.user) {
+      setIsUser(checkAuth.user);
     }
-  }, [isLogin]);
+  }, [checkAuth]);
+
+  useEffect(() => {
+    const checkToken = localStorage.getItem("token");
+    if (checkToken) {
+      usersApi.check().then((res) => {
+        dispatch(
+          checkTokenSuccess({ accesssToken: res.token, user: res.infoUser })
+        );
+      });
+    }
+  }, []);
 
   const logOut = () => {
-    console.log("aaaa");
-    window.localStorage.clear();
+    dispatch(logout());
     localStorage.removeItem("token");
     localStorage.removeItem("user");
   };
